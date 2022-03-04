@@ -81,6 +81,10 @@ public class Equipo {
         Equipo.equipos.get(pos).setNombre(name);
     }
     
+    public void eliminarEquipo(int pos) {
+        Equipo.equipos.remove(pos);
+    }
+    
     public void escribirArchivo(String path, boolean append) throws IOException{
         FileWriter fw = null;
         BufferedWriter bw = null;
@@ -98,7 +102,9 @@ public class Equipo {
                 eq += equipo.getGolesContra()+";";
                 eq += equipo.getDiferencia()+";";
                 eq += equipo.getPts()+";";
-                bw.write(eq +"\n");
+                eq += "\n";
+                bw.write(eq);
+                eq = "";
             }
             bw.flush();
             fw.close();
@@ -108,7 +114,8 @@ public class Equipo {
         }  
     }
     
-    public void cargarArchivo() {
+    public void cargarArchivo(String path) {
+        file = new File(path);
         Scanner sc = null;
         equipos = new ArrayList();
         if(file.exists()){
@@ -198,6 +205,24 @@ public class Equipo {
     public void setPts(int pts) {
         this.pts = pts;
     }
+
+    public static ArrayList<Equipo> getEquipos() {
+        return equipos;
+    }
+
+    public static void setEquipos(ArrayList<Equipo> equipos) {
+        Equipo.equipos = equipos;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+    
+    
 
     @Override
     public String toString() {

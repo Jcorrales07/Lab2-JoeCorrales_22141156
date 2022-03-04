@@ -1,6 +1,8 @@
 package joecorrales_22141156;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
@@ -119,6 +121,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(menuModificar);
 
         jMenuItem3.setText("Eliminar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Cargar");
@@ -159,7 +166,7 @@ public class Principal extends javax.swing.JFrame {
         Equipo e = new Equipo();
         e.modificarName(name, pos);
         try {
-            e.escribirArchivo("./equipos.txt", true);
+            e.escribirArchivo("./equipos.txt", false);
         } catch (IOException ex) {}
     }//GEN-LAST:event_menuModificarActionPerformed
 
@@ -179,6 +186,15 @@ public class Principal extends javax.swing.JFrame {
             }
         } catch (IOException ex) {}
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        Equipo e = new Equipo();
+        
+        e.eliminarEquipo(Integer.parseInt(JOptionPane.showInputDialog(null, "Posicion a eliminar: ")));
+        try {
+            e.escribirArchivo("./equipos.txt", false);
+        } catch (IOException ex) {}
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     
     public static void main(String args[]) {
