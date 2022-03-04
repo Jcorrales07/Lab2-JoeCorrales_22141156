@@ -8,17 +8,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AdministrarEquipo {
-    private ArrayList<Equipo> equipos;
+    private ArrayList<Equipo> equipos = new ArrayList<>();
     private File file = null;
     
     public AdministrarEquipo() {}
     
-    public AdministrarEquipo(String path) {
+    public AdministrarEquipo(String path) throws IOException {
         file = new File(path);
     }
     
     public void addEquipo(Equipo e) {
         this.equipos.add(e);
+        System.out.println("Equipo creado");
     }
     
     public void writeFile() throws IOException {
