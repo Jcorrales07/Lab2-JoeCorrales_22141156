@@ -1,9 +1,12 @@
 package joecorrales_22141156;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 
 public class Equipo {
@@ -33,6 +36,19 @@ public class Equipo {
         this.pts = 0;
     }
 
+    public Equipo(String nombre, int partidoJugado, int pGanados, int pEmpatados, int pPerdidos, int golesFavor, int golesContra, int diferencia, int pts) {
+        this.nombre = nombre;
+        this.partidoJugado = partidoJugado;
+        this.pGanados = pGanados;
+        this.pEmpatados = pEmpatados;
+        this.pPerdidos = pPerdidos;
+        this.golesFavor = golesFavor;
+        this.golesContra = golesContra;
+        this.diferencia = diferencia;
+        this.pts = pts;
+    }
+
+    
     public void addList(Equipo e) {
         this.equipos.add(e);
     } 
@@ -59,6 +75,57 @@ public class Equipo {
         System.out.println("No existe");
         return true;
     }
+    
+    
+    public void modificarName(String name, int pos) {
+        Equipo.equipos.get(pos).setNombre(name);
+    }
+    
+    public void escribirArchivo() throws IOException{
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        try{
+            fw = new FileWriter(file, false);
+            bw = new BufferedWriter(fw);
+            String eq = "";
+            for (Equipo equipo : equipos) {
+                eq += equipo.getNombre()+";";
+                eq += equipo.getPartidoJugado()+";";
+                eq += equipo.getpGanados()+";";
+                eq += equipo.getpEmpatados()+";";
+                eq += equipo.getpPerdidos()+";";
+                eq += equipo.getGolesFavor()+";";
+                eq += equipo.getGolesContra()+";";
+                eq += equipo.getDiferencia()+";";
+                eq += equipo.getPts()+";";
+                bw.write(eq +"\n");
+            }
+            bw.flush();
+            fw.close();
+            bw.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error, no se pudo escribir al archivo!");
+        }  
+    }
+    
+    public void cargarArchivo() {
+        Scanner sc = null;
+        equipos = new ArrayList();
+        if(file.exists()){
+            try{
+                sc = new Scanner(file);
+                sc.useDelimiter(";");
+                while(sc.hasNext()){
+                    equipos.add(new Equipo(sc.next(), sc.nextInt(), sc.nextInt(), sc.nextInt(), sc.nextInt(), sc.nextInt(), sc.nextInt(), sc.nextInt(), sc.nextInt()));                    
+                }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error, no se pudo leer el archivo!");
+            }
+            sc.close();
+        }
+    }
+    
+    
     
     public String getNombre() {
         return nombre;

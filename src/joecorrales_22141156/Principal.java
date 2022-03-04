@@ -1,5 +1,7 @@
 package joecorrales_22141156;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -156,6 +158,10 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuCrearActionPerformed
 
     private void menuModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuModificarActionPerformed
+        int pos = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la posicion: "));
+        String name =  JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre: ");
+        Equipo e = new Equipo();
+        e.modificarName(name, pos);
         
     }//GEN-LAST:event_menuModificarActionPerformed
 
