@@ -21,6 +21,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtEquipo = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
+        jlMensaje = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuCrear = new javax.swing.JMenuItem();
@@ -50,6 +51,8 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jlMensaje.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -63,7 +66,8 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(199, 199, 199)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtEquipo)
-                            .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE))))
+                            .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                            .addComponent(jlMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(222, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -75,7 +79,9 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(txtEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jlMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout JFagregarEquipoLayout = new javax.swing.GroupLayout(JFagregarEquipo.getContentPane());
@@ -91,7 +97,7 @@ public class Principal extends javax.swing.JFrame {
             JFagregarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JFagregarEquipoLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 31, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -163,6 +169,9 @@ public class Principal extends javax.swing.JFrame {
             Equipo e = new Equipo(name);
             if(e.verifyName(name)) {
                 e.addEquipo(name);
+                jlMensaje.setText("Equipo creado");
+            } else {
+                jlMensaje.setText("Ya existe el equipo");
             }
         } catch (IOException ex) {}
     }//GEN-LAST:event_btnAgregarActionPerformed
@@ -211,6 +220,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jlMensaje;
     private javax.swing.JMenuItem menuCrear;
     private javax.swing.JTextField txtEquipo;
     // End of variables declaration//GEN-END:variables

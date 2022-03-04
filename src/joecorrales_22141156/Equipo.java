@@ -35,7 +35,7 @@ public class Equipo {
     }
 
     public void addList(Equipo e) {
-        this.equipos.add(e);
+        Equipo.equipos.add(e);
     } 
     
     public void addEquipo(String name) throws IOException {
@@ -49,7 +49,6 @@ public class Equipo {
     public boolean verifyName(String name) {
         for(Equipo e : equipos) {
             if(name.equalsIgnoreCase(e.getNombre())) {
-                JOptionPane.showMessageDialog(null, "Equipo ya creado!");
                 return false;
             }
         }
