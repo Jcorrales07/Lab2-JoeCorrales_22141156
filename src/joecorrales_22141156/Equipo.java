@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 
 public class Equipo {
@@ -35,13 +34,17 @@ public class Equipo {
     }
 
     public void addList(Equipo e) {
-        Equipo.equipos.add(e);
+        this.equipos.add(e);
     } 
     
     public void addEquipo(String name) throws IOException {
         FileWriter fw = new FileWriter(file, true);
         Equipo e = new Equipo(name);
         addList(e);
+        for(Equipo eq : equipos) {
+            System.out.println(eq.toString());
+        }
+        System.out.println("Equipo creado");
         fw.write(toString() + "\n");
         fw.close();
     }
@@ -49,9 +52,11 @@ public class Equipo {
     public boolean verifyName(String name) {
         for(Equipo e : equipos) {
             if(name.equalsIgnoreCase(e.getNombre())) {
+                System.out.println("Ya existe un nombre");
                 return false;
             }
         }
+        System.out.println("No existe");
         return true;
     }
     

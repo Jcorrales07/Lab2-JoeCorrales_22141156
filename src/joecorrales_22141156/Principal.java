@@ -25,7 +25,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuCrear = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menuModificar = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -112,13 +112,13 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(menuCrear);
 
-        jMenuItem2.setText("Modificar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menuModificar.setText("Modificar");
+        menuModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menuModificarActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(menuModificar);
 
         jMenuItem3.setText("Eliminar");
         jMenu1.add(jMenuItem3);
@@ -155,9 +155,9 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_menuCrearActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void menuModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuModificarActionPerformed
+        
+    }//GEN-LAST:event_menuModificarActionPerformed
 
     private void txtEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEquipoActionPerformed
         // TODO add your handling code here:
@@ -216,12 +216,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlMensaje;
     private javax.swing.JMenuItem menuCrear;
+    private javax.swing.JMenuItem menuModificar;
     private javax.swing.JTextField txtEquipo;
     // End of variables declaration//GEN-END:variables
 }
