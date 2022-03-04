@@ -1,10 +1,6 @@
 package joecorrales_22141156;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
@@ -162,7 +158,9 @@ public class Principal extends javax.swing.JFrame {
         String name =  JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre: ");
         Equipo e = new Equipo();
         e.modificarName(name, pos);
-        
+        try {
+            e.escribirArchivo("./equipos.txt", true);
+        } catch (IOException ex) {}
     }//GEN-LAST:event_menuModificarActionPerformed
 
     private void txtEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEquipoActionPerformed

@@ -81,11 +81,11 @@ public class Equipo {
         Equipo.equipos.get(pos).setNombre(name);
     }
     
-    public void escribirArchivo() throws IOException{
+    public void escribirArchivo(String path, boolean append) throws IOException{
         FileWriter fw = null;
         BufferedWriter bw = null;
         try{
-            fw = new FileWriter(file, false);
+            fw = new FileWriter(path, append);
             bw = new BufferedWriter(fw);
             String eq = "";
             for (Equipo equipo : equipos) {
