@@ -3,6 +3,7 @@ package joecorrales_22141156;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
 
@@ -157,17 +158,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEquipoActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        AdministrarEquipo ae = null;
         try {
-            ae = new AdministrarEquipo("./equipos.txt");
-        } catch (IOException ex) {ex.printStackTrace();}
-        String nombre = txtEquipo.getText();
-        ae.addEquipo(new Equipo(nombre));
-        try {
-            ae.writeFile();
-        } catch (IOException ex) {ex.printStackTrace(System.out);}
+            String name = txtEquipo.getText();
+            Equipo e = new Equipo(name);
+            if(e.verifyName(name)) {
+                e.addEquipo(name);
+            }
+        } catch (IOException ex) {}
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

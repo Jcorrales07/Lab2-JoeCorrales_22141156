@@ -1,7 +1,15 @@
 package joecorrales_22141156;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 
 public class Equipo {
+    private static ArrayList<Equipo> equipos = new ArrayList<>();
+    private File file = new File("./equipos.txt");
     private String nombre;
     private int partidoJugado;
     private int pGanados;
@@ -26,16 +34,26 @@ public class Equipo {
         this.pts = 0;
     }
 
-    public Equipo(String nombre, int partidoJugado, int pGanados, int pEmpatados, int pPerdidos, int golesFavor, int golesContra, int diferencia, int pts) {
-        this.nombre = nombre;
-        this.partidoJugado = partidoJugado;
-        this.pGanados = pGanados;
-        this.pEmpatados = pEmpatados;
-        this.pPerdidos = pPerdidos;
-        this.golesFavor = golesFavor;
-        this.golesContra = golesContra;
-        this.diferencia = diferencia;
-        this.pts = pts;
+    public void addList(Equipo e) {
+        this.equipos.add(e);
+    } 
+    
+    public void addEquipo(String name) throws IOException {
+        FileWriter fw = new FileWriter(file, true);
+        Equipo e = new Equipo(name);
+        addList(e);
+        fw.write(toString() + "\n");
+        fw.close();
+    }
+    
+    public boolean verifyName(String name) {
+        for(Equipo e : equipos) {
+            if(name.equalsIgnoreCase(e.getNombre())) {
+                JOptionPane.showMessageDialog(null, "Equipo ya creado!");
+                return false;
+            }
+        }
+        return true;
     }
     
     public String getNombre() {
@@ -112,6 +130,6 @@ public class Equipo {
 
     @Override
     public String toString() {
-        return  nombre+";"+partidoJugado+";"+pGanados+";"+pEmpatados+";"+pPerdidos+";"+golesFavor+";"+golesContra+";"+diferencia+";"+pts+";";
+        return  this.nombre+";"+this.partidoJugado+";"+this.pGanados+";"+this.pEmpatados+";"+this.pPerdidos+";"+this.golesFavor+";"+this.golesContra+";"+this.diferencia+";"+this.pts+";";
     }
 }
