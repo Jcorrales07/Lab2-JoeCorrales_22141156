@@ -26,6 +26,18 @@ public class Equipo {
         this.pts = 0;
     }
 
+    public Equipo(String nombre, int partidoJugado, int pGanados, int pEmpatados, int pPerdidos, int golesFavor, int golesContra, int diferencia, int pts) {
+        this.nombre = nombre;
+        this.partidoJugado = partidoJugado;
+        this.pGanados = pGanados;
+        this.pEmpatados = pEmpatados;
+        this.pPerdidos = pPerdidos;
+        this.golesFavor = golesFavor;
+        this.golesContra = golesContra;
+        this.diferencia = diferencia;
+        this.pts = pts;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -96,5 +108,10 @@ public class Equipo {
 
     public void setPts(int pts) {
         this.pts = pts;
+    }
+
+    @Override
+    public String toString() {
+        return  nombre+";"+partidoJugado+";"+pGanados+";"+pEmpatados+";"+pPerdidos+";"+golesFavor+";"+golesContra+";"+diferencia+";"+pts+";";
     }
 }
