@@ -1,8 +1,6 @@
 package joecorrales_22141156;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
@@ -129,6 +127,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Cargar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
@@ -195,6 +198,16 @@ public class Principal extends javax.swing.JFrame {
             e.escribirArchivo("./equipos.txt", false);
         } catch (IOException ex) {}
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+       Equipo e = new Equipo();
+        String equipos = "";
+        for(Equipo eq : e.getEquipos()) {
+           equipos += eq.getNombre();
+           equipos += "\n";
+        }
+        JOptionPane.showMessageDialog(null, equipos);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     
     public static void main(String args[]) {
